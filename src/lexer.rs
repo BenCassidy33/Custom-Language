@@ -65,6 +65,7 @@ pub enum TokenType {
     BREAK,
     DO,
     END,
+    NEWLINE,
 
     EOF,
 }
@@ -72,9 +73,9 @@ pub enum TokenType {
 #[derive(Debug, Clone, PartialEq)]
 pub struct Token {
     pub kind: TokenType,
-    literal: String,
-    start: usize,
-    end: usize,
+    pub literal: String,
+    pub start: usize,
+    pub end: usize,
 }
 
 #[derive(Debug)]
@@ -146,6 +147,7 @@ impl Lexer {
             (r"\bbreak\b", TokenType::BREAK),
             (r"\bdo\b", TokenType::DO),
             (r"\bend\b", TokenType::END),
+            (r"\n", TokenType::NEWLINE),
 
 
             (r"\b[0-9]+\b", TokenType::NUMBER),

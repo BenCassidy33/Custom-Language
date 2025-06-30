@@ -2,10 +2,11 @@
 use crate::ast::{declerations, items, statements};
 
 pub struct Program {
-    kind: String,
+    //kind: String,
     //loc: todo!()
-    range: (usize, usize),
-    body: Vec<statements::Statement>,
+    pub start: usize,
+    pub end: usize,
+    pub body: Vec<statements::Statement>,
 }
 
 pub enum Item {
