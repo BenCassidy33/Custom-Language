@@ -13,9 +13,10 @@ pub enum Item {
     Decleration(declerations::Decleration),
 }
 
-pub enum LiteralOrIdentifier {
+pub enum Term {
     Literal(Literal),
     Identifier(Identifier),
+    Member(Member),
 }
 
 pub struct Identifier {
@@ -29,4 +30,11 @@ pub struct Literal {
     end: usize,
     raw: String,
     value: String,
+}
+
+pub struct Member {
+    start: usize,
+    end: usize,
+
+    property: Box<Term>,
 }

@@ -10,33 +10,21 @@ pub struct ExpressionStatement {
 
 pub enum ExpressionType {
     CallExpression(CallExpression),
-    MemberExpression(MemberExpression),
+    MemberExpression(ast::Member),
     BinaryExpression(BinaryExpression),
 }
 
 pub struct CallExpression {
     start: usize,
     end: usize,
-    calle: MemberExpression,
-    arguments: Vec<ast::LiteralOrIdentifier>,
-}
-
-pub enum IdentOrMember {
-    Identifier(ast::Identifier),
-    Member(MemberExpression),
-}
-
-pub struct MemberExpression {
-    start: usize,
-    end: usize,
-
-    property: Box<IdentOrMember>,
+    calle: ast::Member,
+    arguments: Vec<ast::Term>,
 }
 
 // Expressions for if statements
 pub struct BinaryExpression {
-    left: ast::LiteralOrIdentifier,
-    right: ast::LiteralOrIdentifier,
+    left: ast::Term,
+    right: ast::Term,
     operator: String,
 }
 

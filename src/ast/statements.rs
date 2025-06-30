@@ -28,7 +28,7 @@ pub enum IfAlternate {
 pub struct ReturnStatement {
     start: usize,
     end: usize,
-    arguments: ast::LiteralOrIdentifier,
+    arguments: ast::Term,
 }
 
 pub enum Statement {
