@@ -54,18 +54,18 @@ Maps and Interfaces:
     }
 
     //WARNING: DuckTypes are checked at runtime, Not compile time! Use 'Interface' for static type checking. DuckTypes are commonly used for maps where the type of a variable may not be entirely static and can have more fields than required but not less fields.
-    type name = DuckType {
+    type name = ducktype {
         ... // same syntax as interfaces
     }
 ```
 
-Example of DuckType:
+Example of ducktype:
 
 ```
 // Note: Int|String will get converted to an "anonmyous" union at compile time.
 let system_info: Map[String: Int|Float|String] = {}
 
-type required_info = DuckType {
+type required_info = ducktype {
     host_name: String,
     os_name: String,
     os_version: Float,
